@@ -3,7 +3,12 @@ package hard;
 public class TrailingZerosInFactorial {
 
 	public static int getNumberOfTrailingZerosInFactorialOfAGivenNumber(int number) {
-		return number / 5;
+		int numberOfTrailingZeros = 0;
+		while (number >= 5) {
+			number /= 5;
+			numberOfTrailingZeros += number;
+		}
+		return numberOfTrailingZeros;
 	}
 
 	public static int getNumberOfTrailingZerosInefficient(int number) {
@@ -26,7 +31,7 @@ public class TrailingZerosInFactorial {
 	}
 
 	public static void main(String[] args) {
-		int number = 1;
+		int number = 25;
 		System.out.println("Factorial : " + getFactorial(number));
 		System.out.println("Efficient: " + getNumberOfTrailingZerosInFactorialOfAGivenNumber(number));
 		System.out.println("Inefficient: " + getNumberOfTrailingZerosInefficient(number));
