@@ -4,7 +4,7 @@ public class Permutations {
 	public static void printAllPermutations(String str) {
 		printAllPermutationsRec(str, "");
 	}
-
+	
 	private static void printAllPermutationsRec(String str, String prefix) {
 		if (str.isEmpty()) {
 			System.out.println(prefix);
