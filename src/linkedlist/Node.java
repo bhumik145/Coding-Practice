@@ -2,9 +2,9 @@ package linkedlist;
 
 public class Node {
 
-	private String data;
-	private Node next;
-	private Node previous;
+	String data;
+	Node next;
+	Node previous;
 
 	public Node(String data) {
 		this.data = data;

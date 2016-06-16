@@ -115,18 +115,18 @@ public class LinkedList {
 
 	public LinkedList removeDuplicatesInMemory() {
 		Node current = head;
-		while (current != null && current.getNext() != null) {
-			Node traverse = current.getNext();
-			while (traverse != null) {
-				if (traverse.equals(current)) {
-					traverse.getPrevious().setNext(traverse.getNext());
+		while (current != null) {
+			Node traverse = current;
+			while (traverse != null && traverse.next != null) {
+				if (traverse.next.equals(current)) {
+					traverse.setNext(traverse.next.next);
 					if (null != traverse.getNext()) {
-						traverse.getNext().setPrevious(traverse.getPrevious());
+						traverse.next.previous = traverse;
 					}
 				}
-				traverse = traverse.getNext();
+				traverse = traverse.next;
 			}
-			current = current.getNext();
+			current = current.next;
 		}
 		return this;
 	}
