@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class LinkedList<T> {
 
-	private Node<T> head;
-	private boolean isSingly;
+	Node<T> head;
+	boolean isSingly;
 
 	public LinkedList(Node<T> head, boolean isSingly) {
 		this.head = head;
@@ -15,6 +15,10 @@ public class LinkedList<T> {
 
 	public LinkedList(Node<T> head) {
 		this(head, false);
+	}
+
+	public LinkedList() {
+		// do nothing
 	}
 
 	public Node<T> getHead() {
@@ -34,6 +38,14 @@ public class LinkedList<T> {
 	}
 
 	public LinkedList<T> addNodeAtEnd(Node<T> node) {
+
+		// If the LL is empty, then the first element becomes head
+
+		if (null == head) {
+			this.head = node;
+			return this;
+		}
+		
 		Node<T> traverse = head;
 		// go till the end
 		while (traverse.getNext() != null) {
