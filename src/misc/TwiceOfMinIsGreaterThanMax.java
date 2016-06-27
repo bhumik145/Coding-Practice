@@ -1,8 +1,5 @@
 package misc;
 
-import java.util.*;
-import java.io.*;
-
 /**
  * http://www.geeksforgeeks.org/remove-minimum-elements-either-side-2min-max/
  * 

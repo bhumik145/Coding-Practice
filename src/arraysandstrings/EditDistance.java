@@ -1,10 +1,5 @@
 package arraysandstrings;
 
-import java.util.Map;
-import java.util.Map.Entry;
-
-import util.StringUtils;
-
 public class EditDistance {
 
 	public static boolean isEditDistanceLessThan2Smart(String first, String second) {

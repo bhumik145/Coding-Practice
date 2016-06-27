@@ -3,34 +3,6 @@ import java.util.Arrays;
 
 public class MergeThreeSortedArrays {
 
-	public int[] sortThreeArrays(int[] array1, int[] array2, int[] array3) {
-
-		// Do the null and size-0 checks
-		int[] finalArray = new int[array1.length + array2.length + array3.length];
-		int index1 = 0;
-		int index2 = 0;
-		int index3 = 0;
-
-		while (index1 < array1.length || index2 < array2.length || index3 < array3.length) {
-			if (index1 < array1.length && index2 < array2.length && index3 < array3.length) {
-
-			} else if (index1 < array1.length && index2 < array2.length) {
-
-			} else if (index1 < array1.length && index3 < array3.length) {
-
-			} else if (index2 < array2.length && index3 < array3.length) {
-
-			} else if (index1 < array1.length) {
-
-			} else if (index2 < array2.length) {
-
-			} else if (index3 < array3.length) {
-
-			}
-		}
-		return null;
-	}
-
 	public static int[] sortNArrays(int[][] arrays) {
 
 		int finalSize = 0;
