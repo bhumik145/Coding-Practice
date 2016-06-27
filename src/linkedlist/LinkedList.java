@@ -3,25 +3,25 @@ package linkedlist;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LinkedList {
+public class LinkedList<T> {
 
-	private Node head;
+	private Node<T> head;
 	private boolean isSingly;
 
-	public LinkedList(Node head, boolean isSingly) {
+	public LinkedList(Node<T> head, boolean isSingly) {
 		this.head = head;
 		this.isSingly = isSingly;
 	}
 
-	public LinkedList(Node head) {
+	public LinkedList(Node<T> head) {
 		this(head, false);
 	}
 
-	public Node getHead() {
+	public Node<T> getHead() {
 		return head;
 	}
 
-	public void setHead(Node head) {
+	public void setHead(Node<T> head) {
 		this.head = head;
 	}
 
@@ -33,8 +33,8 @@ public class LinkedList {
 		this.isSingly = isSingly;
 	}
 
-	public LinkedList addNodeAtEnd(Node node) {
-		Node traverse = head;
+	public LinkedList<T> addNodeAtEnd(Node<T> node) {
+		Node<T> traverse = head;
 		// go till the end
 		while (traverse.getNext() != null) {
 			traverse = traverse.getNext();
@@ -46,12 +46,12 @@ public class LinkedList {
 		return this;
 	}
 
-	public LinkedList addNodeAtEnd(String data) {
-		return addNodeAtEnd(new Node(data));
+	public LinkedList<T> addNodeAtEnd(T data) {
+		return addNodeAtEnd(new Node<T>(data));
 	}
 
 	public void traverseList() {
-		Node traverse = head;
+		Node<T> traverse = head;
 		while (traverse != null) {
 			System.out.print(traverse + " -> ");
 			traverse = traverse.getNext();
@@ -71,19 +71,19 @@ public class LinkedList {
 		if (null == head || null == head.getNext()) {
 			return;
 		}
-		Node traverse = head;
+		Node<T> traverse = head;
 
 		while (traverse.getNext() != null && traverse.getNext().getNext() != null) {
-			Node previous = traverse.getPrevious();
-			Node nextTraverse = traverse.getNext().getNext();
+			Node<T> previous = traverse.getPrevious();
+			Node<T> nextTraverse = traverse.getNext().getNext();
 			traverse.setPrevious(traverse.getNext());
 			traverse.getNext().setNext(traverse);
 			traverse.setNext(previous);
 			traverse = nextTraverse;
 		}
 
-		Node previous = traverse.getPrevious();
-		Node next = traverse.getNext();
+		Node<T> previous = traverse.getPrevious();
+		Node<T> next = traverse.getNext();
 		if (next != null) {
 			traverse.setPrevious(traverse.getNext());
 			traverse.getNext().setNext(traverse);
@@ -96,9 +96,9 @@ public class LinkedList {
 		}
 	}
 
-	public LinkedList removeDuplicatesWithExtraMemory() {
-		Set<Node> uniqueNodes = new HashSet<>();
-		Node traverse = head;
+	public LinkedList<T> removeDuplicatesWithExtraMemory() {
+		Set<Node<T>> uniqueNodes = new HashSet<>();
+		Node<T> traverse = head;
 		while (traverse != null) {
 			if (uniqueNodes.contains(traverse)) {
 				traverse.getPrevious().setNext(traverse.getNext());
@@ -113,10 +113,10 @@ public class LinkedList {
 		return this;
 	}
 
-	public LinkedList removeDuplicatesInMemory() {
-		Node current = head;
+	public LinkedList<T> removeDuplicatesInMemory() {
+		Node<T> current = head;
 		while (current != null) {
-			Node traverse = current;
+			Node<T> traverse = current;
 			while (traverse != null && traverse.next != null) {
 				if (traverse.next.equals(current)) {
 					traverse.setNext(traverse.next.next);

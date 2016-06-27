@@ -1,38 +1,38 @@
 package linkedlist;
 
-public class Node {
+public class Node<T> {
 
-	String data;
-	Node next;
-	Node previous;
+	T data;
+	Node<T> next;
+	Node<T> previous;
 
-	public Node(String data) {
+	public Node(T data) {
 		this.data = data;
 		this.previous = null;
 		this.next = null;
 	}
 
-	public String getData() {
+	public T getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
-	public Node getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 
-	public Node getPrevious() {
+	public Node<T> getPrevious() {
 		return previous;
 	}
 
-	public void setPrevious(Node previous) {
+	public void setPrevious(Node<T> previous) {
 		this.previous = previous;
 	}
 
@@ -49,6 +49,7 @@ public class Node {
 		return result;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
