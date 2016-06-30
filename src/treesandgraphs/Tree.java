@@ -46,11 +46,9 @@ public class Tree<T> {
 			}
 			if (newNode.compareTo(previous) > 0) {
 				// New node should go right
-				System.out.println("Adding new node to the right of node : " + previous);
 				previous.right = newNode;
 			} else {
 				// left
-				System.out.println("Adding new node to the left of node : " + previous);
 				previous.left = newNode;
 			}
 		}
