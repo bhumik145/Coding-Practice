@@ -26,6 +26,7 @@ public class CreateBinaryTreeFromSortedArray {
 		Integer[] sortedArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		TreeNode<Integer> resultNode = createMinHieghtBinaryTree(sortedArray, 0, sortedArray.length - 1);
 		Tree.inOrderTraversal(resultNode);
-
+		
+		Tree.printLevelByLevel(resultNode);
 	}
 }

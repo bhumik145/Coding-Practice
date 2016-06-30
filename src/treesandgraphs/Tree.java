@@ -1,5 +1,10 @@
 package treesandgraphs;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Tree<T> {
 
 	TreeNode<T> root;
@@ -50,6 +55,39 @@ public class Tree<T> {
 			}
 		}
 		return this;
+	}
+
+	public static <T> void printLevelByLevel(TreeNode<T> root) {
+		if (null == root) {
+			return;
+		}
+
+		List<TreeNode<T>> nodesAtCurrentLevel = new ArrayList<>();
+		nodesAtCurrentLevel.add(root);
+
+		List<TreeNode<T>> nodesAtNextLevel;
+
+		Set<TreeNode<T>> visitedNodes = new HashSet<>();
+		int level = 0;
+		do {
+			System.out.print("Level : "+level + "  ->  ");
+			nodesAtNextLevel = new ArrayList<>();
+			for (TreeNode<T> node : nodesAtCurrentLevel) {
+				if (!visitedNodes.contains(node)) {
+					visitedNodes.add(node);
+					System.out.print(node + "  ");
+					if (null != node.left) {
+						nodesAtNextLevel.add(node.left);
+					}
+					if (null != node.right) {
+						nodesAtNextLevel.add(node.right);
+					}
+				}
+			}
+			nodesAtCurrentLevel = nodesAtNextLevel;
+			level++;
+			System.out.println();
+		} while (!nodesAtNextLevel.isEmpty());
 	}
 
 }
