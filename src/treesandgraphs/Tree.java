@@ -4,7 +4,7 @@ public class Tree<T> {
 
 	TreeNode<T> root;
 
-	public void inOrderTraversal(TreeNode<T> node) {
+	public static <T> void inOrderTraversal(TreeNode<T> node) {
 		if (null == node) {
 			return;
 		} else {
