@@ -17,6 +17,7 @@ public class SumLL {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static LinkedList<Integer> sumTwoLLWhereUnitDigitIsTail(LinkedList<Integer> list1,
 			LinkedList<Integer> list2) {
 
