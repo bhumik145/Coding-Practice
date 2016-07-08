@@ -5,6 +5,7 @@ public class TreeNode<T> implements Comparable<TreeNode<T>> {
 	T data;
 	TreeNode<T> left;
 	TreeNode<T> right;
+	int size = 1;
 
 	public TreeNode(T data) {
 		this.data = data;
@@ -18,7 +19,7 @@ public class TreeNode<T> implements Comparable<TreeNode<T>> {
 
 	@Override
 	public String toString() {
-		return "[ " + data + " ] ";
+		return "[ " + data + " ] " + " , size: " + this.size + "  ";
 	}
 
 	@Override
