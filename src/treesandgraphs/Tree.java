@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 
 public class Tree<T> {
 
@@ -16,6 +17,36 @@ public class Tree<T> {
 			inOrderTraversal(node.left);
 			System.out.println(node);
 			inOrderTraversal(node.right);
+		}
+	}
+
+	public static <T> void inOrderTraversalIterative(TreeNode<T> node) {
+
+		if (null == node) {
+			return;
+		} else {
+			Stack<TreeNode<T>> stack = new Stack<>();
+			stack.add(node);
+
+			TreeNode<T> current = node;
+
+			while (null != current) {
+				stack.push(current);
+				current = current.left;
+			}
+
+			while (!stack.isEmpty()) {
+				current = stack.pop();
+				System.out.println(current);
+				if (current.right != null) {
+					current = current.right;
+					while (current != null) {
+						stack.push(current);
+						current = current.left;
+					}
+				}
+			}
+
 		}
 	}
 
@@ -68,7 +99,7 @@ public class Tree<T> {
 		Set<TreeNode<T>> visitedNodes = new HashSet<>();
 		int level = 0;
 		do {
-			System.out.print("Level : "+level + "  ->  ");
+			System.out.print("Level : " + level + "  ->  ");
 			nodesAtNextLevel = new ArrayList<>();
 			for (TreeNode<T> node : nodesAtCurrentLevel) {
 				if (!visitedNodes.contains(node)) {
